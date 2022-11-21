@@ -1,0 +1,1 @@
+# Curso entendendo o TypeScript.
