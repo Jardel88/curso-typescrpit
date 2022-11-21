@@ -62,3 +62,73 @@ function contagemRegressiva(inicio = 5, fim = inicio - 5) {
 }
 contagemRegressiva();
 contagemRegressiva(3);
+// Spread operator, faz o espalhamento
+const numbers = [1, 10, 20, 100, 90, 2];
+//console.log(Math.max(numbers))
+console.log(Math.max(...numbers));
+const turmaA = ['João', 'Maria', 'José'];
+const turmaB = ['Antonio', 'Francisco', ...turmaA, 'Lorena'];
+console.log(turmaB);
+/*
+function retornaArray(arg1: number, arg2: number): number[] {
+    return [arg1, arg2]
+}
+const numeros = retornaArray(1, 2)
+console.log(numeros)
+*/
+// Rest operator, faz o agrupamento
+function retornaArray(...args) {
+    return args;
+}
+const numeros = retornaArray(1, 2, 3, 4, 5, 10, 20);
+console.log(numeros);
+// Spread e Rest com Tupla
+const tupla = [1, 'abc', false];
+function tuplaParam1(a, b, c) {
+    console.log(`1) ${a} ${b} ${c}`);
+}
+tuplaParam1(...tupla);
+function tuplaParam2(...params) {
+    console.log(Array.isArray(params));
+    console.log(`2) ${params[0]} ${params[1]} ${params[2]}`);
+}
+tuplaParam2(...tupla);
+// Destructuring (array)
+const caracteristicas = ['Motor Zetec 1.8', 2020];
+//const motor = caracteristicas[0]
+//const ano = caracteristicas[1]
+const [motor, ano] = caracteristicas;
+console.log(motor);
+console.log(ano);
+// Destructuring (objeto)
+const item = {
+    nome: 'SSD 1GB',
+    preco: 500,
+    caracteristicas: {
+        w: 'Importado'
+    }
+};
+// Sem destructuring
+const nomeItem = item.nome;
+const precoItem = item.preco;
+console.log(nomeItem);
+console.log(precoItem);
+// Com destructuring
+const { nome: n, preco: p, caracteristicas: { w } } = item;
+console.log(n);
+console.log(p);
+console.log(w);
+// Template string
+const usuarioId = 'Teste';
+const notificacoes = '8';
+// Sem template
+const boasVindas = 'Boas vindas' + usuarioId +
+    'Notificações: ' + notificacoes;
+// Com template
+const boasVindas2 = `
+    Boas vindas ${usuarioId},
+    Notificações: ${parseInt(notificacoes) > 10 ? '+9' : notificacoes}
+`;
+console.log(boasVindas2);
+console.log(`${(1 + 1) * 30}`);
+console.log(`Motor: ${caracteristicas[0]}`);
