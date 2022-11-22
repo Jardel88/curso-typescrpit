@@ -132,3 +132,38 @@ const boasVindas2 = `
 console.log(boasVindas2);
 console.log(`${(1 + 1) * 30}`);
 console.log(`Motor: ${caracteristicas[0]}`);
+// Promisse
+// Sem tratamento
+function esperar3s() {
+    setTimeout(() => {
+        return '3s depois';
+    }, 3000);
+}
+const resultado = esperar3s();
+console.log(resultado);
+// Com tratamento sem Promisse
+function esperar4s(callback) {
+    setTimeout(() => {
+        callback('3s depois...');
+    }, 3000);
+}
+esperar4s(function (resultado2) {
+    console.log(resultado2);
+});
+// Com Promisse
+function esperar3sPromise() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve('3s depois promie...');
+        }, 3000);
+    });
+}
+esperar3sPromise()
+    .then(dado => console.log(dado));
+fetch('https://swapi.dev/api/people/1')
+    .then(res => res.json())
+    .then(personagem => personagem.films)
+    .then(films => fetch(films[0]))
+    .then(resFilm => resFilm.json())
+    .then(filme => console.log(filme.title))
+    .catch(err => console.log('Catch!!!!' + err));
