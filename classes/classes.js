@@ -66,4 +66,16 @@ const carro1 = new Carro('ford', 'ka', 185);
 Array(50).fill(0).forEach(() => carro1.acelerar());
 console.log(carro1.acelerar());
 Array(20).fill(0).forEach(() => carro1.frear());
-console.log(carro1.acelerar());
+console.log(carro1.frear());
+class Ferrari extends Carro {
+    acelerar() {
+        return this.alterarVelocidade(20);
+    }
+    frear() {
+        return this.alterarVelocidade(-10);
+    }
+}
+const f40 = new Ferrari('Ferrari', 'F40', 324);
+console.log(`${f40.marca} ${f40.modelo}`);
+console.log(f40.acelerar());
+console.log(f40.frear());
