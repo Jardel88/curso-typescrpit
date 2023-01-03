@@ -170,3 +170,20 @@ console.log(c1.getResultado())
 c1 = new Multiplicacao()
 c1.executar(1, 2, 3, 4, 5)
 console.log(c1.getResultado())
+
+
+class Unico {
+    private static instance: Unico = new Unico
+    private constructor() {}
+
+    static getInstance(): Unico {
+        return Unico.instance
+    }
+
+    agora() {
+        return new Date
+    }
+}
+
+// const errado = new Unico()
+console.log(Unico.getInstance().agora())
