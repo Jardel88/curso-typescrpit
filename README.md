@@ -1,1 +1,1 @@
-# Curso: Entendendo o TypeScript.
+# Curso: Entendendo o TypeScript e Padroes de projeto.
