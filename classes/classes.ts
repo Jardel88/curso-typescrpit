@@ -26,3 +26,18 @@ const aniversarioTeste = new DataTeste(7, 3, 1988)
 aniversarioTeste.dia = 4
 console.log(aniversarioTeste.dia)
 console.log(aniversarioTeste)
+
+class Produto {
+    constructor(public nome: string, public preco: number, public desconto: number = 0){}
+
+    public resumo(): string {
+        return `${this.nome} custa R$${this.preco} (${this.desconto * 100}% off)`
+    }
+}
+
+const prod1 = new Produto('Caneta Bib Preta', 4.30)
+prod1.desconto = 0.05
+console.log(prod1.resumo())
+
+const prod2 = new Produto('Caderno escolar', 18.80, 0.15)
+console.log(prod2.resumo())
